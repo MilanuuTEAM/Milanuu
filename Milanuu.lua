@@ -31,7 +31,7 @@ Abs = json:decode(data)
 if Abs.Result.Info == 'Is_Spam' then
 print('\27[1;31m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\nعذرا هذا الايدي محظور من تنصيب هذا السورس\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉') 
 os.execute('lua Milanuu.lua') 
-end ---ifBn
+end
 if Abs.Result.Info == 'Ok' then
 io.write('\27[1;36mتم حفظ ايدي المطور الاساسي\n27[0;39;49m') 
 DevRio:set(Server.."IdMilanuu",DevId) 
