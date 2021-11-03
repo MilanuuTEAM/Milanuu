@@ -52,7 +52,7 @@ echo -e "  |____|   |__|   \____/__/\_ \ "
 echo -e "                             \/ "
 echo -e "\033[0m"
 cd $THIS_DIR && sudo chmod +x tg
-lua Milanuu.lua
+lua Abd-Rio.lua
 }
 if [ "$1" = "install" ]; then
 install
@@ -62,5 +62,5 @@ echo -e "\033[0;31m\n~ The tg File Was Not Found In The Bot Files\n\033[0;33m"
 exit 1
 fi
 cd $THIS_DIR && sudo chmod +x tg
-lua Milanuu.lua
+lua Abd-Rio.lua
 fi
